@@ -19,7 +19,7 @@ public class Lanche_Lista extends Lanche {
 		if (codigo == 1L) {
 			Lanche lanche1 = new Lanche();
 			List<Ingredientes> itens1 = new ArrayList<Ingredientes>();
-			itens1.add(ing.opcional(1L));
+			itens1.add(ing.opcional(2L));
 			itens1.add(ing.opcional(3L));
 			itens1.add(ing.opcional(5L));
 			lanche1.setDescricao("X-Bacon");
@@ -44,6 +44,7 @@ public class Lanche_Lista extends Lanche {
 			Lanche lanche3 = new Lanche();
 			List<Ingredientes> itens3 = new ArrayList<Ingredientes>();
 			itens3.add(ing.opcional(4L));
+			itens3.add(ing.opcional(3L));
 			itens3.add(ing.opcional(5L));
 			lanche3.setDescricao("X-Egg");
 			lanche3.setIngredientes(itens3);

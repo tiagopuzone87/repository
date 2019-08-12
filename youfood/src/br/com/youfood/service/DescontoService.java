@@ -10,7 +10,6 @@ public class DescontoService {
 
 	public Double calculaDesconto(List<Ingredientes> ingredientes, Double valorTotal) {
 
-		List<Ingredientes> ingredientesUtilizado = (List<Ingredientes>) new Ingredientes();
 		Lanche_Lista pronto = new Lanche_Lista();
 		Custom ing_select = new Custom();
 
@@ -26,24 +25,23 @@ public class DescontoService {
 
 		Double valor = 0.0;
 		for (int x = 0; x < ingredientes.size(); x++) {
-			ingredientesUtilizado.get(x).setId(ingredientes.get(x).getId());
 
 			if (ingredientes.get(x).getId() == 1) {
 				chave1 = true;
-			}
+			} else
 
 			if (ingredientes.get(x).getId() == 2) {
 				chave2 = true;
-			}
+			} else
 
-			if (ingredientesUtilizado.get(x).getId() == 3) {
+			if (ingredientes.get(x).getId() == 3) {
 				contador1++;
 				if (quantidadeItem1 % contador1 == 0) {
 					quantidadeDesconto1++;
 				}
-			}
+			} else
 
-			if (ingredientesUtilizado.get(x).getId() == 4) {
+			if (ingredientes.get(x).getId() == 4) {
 				contador2++;
 				if (quantidadeItem2 % contador2 == 0) {
 					quantidadeDesconto2++;

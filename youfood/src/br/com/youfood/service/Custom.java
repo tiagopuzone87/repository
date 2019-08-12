@@ -32,7 +32,7 @@ public class Custom extends Ingredientes {
 
 			Ingredientes ingredientes3 = new Ingredientes();
 			ingredientes3.setId(3L);
-			ingredientes3.setDescricao("Carne");
+			ingredientes3.setDescricao("Hamburguer de Carne");
 			ingredientes3.setValor(3D);
 			ret = ingredientes3;
 
@@ -40,14 +40,14 @@ public class Custom extends Ingredientes {
 
 			Ingredientes ingredientes4 = new Ingredientes();
 			ingredientes4.setId(4L);
-			ingredientes4.setDescricao("ovo");
+			ingredientes4.setDescricao("Ovo");
 			ingredientes4.setValor(0.8);
 			ret = ingredientes4;
 		} else if (codigo == 5) {
 
 			Ingredientes ingredientes5 = new Ingredientes();
 			ingredientes5.setId(5L);
-			ingredientes5.setDescricao("queijo");
+			ingredientes5.setDescricao("Queijo");
 			ingredientes5.setValor(1.5);
 			ret = ingredientes5;
 
