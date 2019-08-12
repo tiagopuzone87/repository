@@ -4,12 +4,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/pedido")
+@WebServlet(urlPatterns = { "/pedido" }, initParams = { 
+		@WebInitParam(name = "param1", value = "value1"),
+		@WebInitParam(name = "param2", value = "value2") })
 public class Principal extends HttpServlet {
 
 	@Override
@@ -27,11 +30,13 @@ public class Principal extends HttpServlet {
 		out.println("<h1> ;) </h1>");
 		out.println("<h1>Escolha uma das opções...</h1>");
 		out.println("<h1> -> 1 Para acessar o cardápio. </h1>");
+		out.println("<input type=\"button\" value=\"Cardapio\" onClick=\"window.location.href='http://localhost:8080/youfood/cardapio'\">");
 		out.println("<h1> -> 2 Para montar um lanche Custom.  </h1>");
+		out.println("<input type=\"button\" value=\"Custom\" onClick=\"window.location.href='http://localhost:8080/youfood/alternativo'\">");
 		out.println("</body>");
 		out.println("</html>");
 		
-		 
+		
 
 	}
 

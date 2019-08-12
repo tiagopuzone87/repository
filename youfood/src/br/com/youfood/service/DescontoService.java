@@ -21,33 +21,32 @@ public class DescontoService {
 		int quantidadeItem2 = 3;
 		int quantidadeDesconto1 = 0;
 		int quantidadeDesconto2 = 0;
+		int contador1 = 0;
+		int contador2 = 0;
 
 		Double valor = 0.0;
 		for (int x = 0; x <= ingredientes.size(); x++) {
 			ingredientesUtilizado.get(x).setId(ingredientes.get(x).getId());
 
-			if (chave1) {
-				if (ingredientes.get(x).getId() == 1) {
-					chave1 = true;
-				}
+			if (ingredientes.get(x).getId() == 1) {
+				chave1 = true;
 			}
-			if (chave2) {
-				if (ingredientes.get(x).getId() == 2) {
-					chave2 = true;
-				}
+
+			if (ingredientes.get(x).getId() == 2) {
+				chave2 = true;
 			}
 
 			if (ingredientesUtilizado.get(x).getId() == 3) {
-				int contador = +x;
-				if (quantidadeItem1 % contador == 0) {
-					quantidadeDesconto1 = +1;
+				contador1++;
+				if (quantidadeItem1 % contador1 == 0) {
+					quantidadeDesconto1++;
 				}
 			}
 
 			if (ingredientesUtilizado.get(x).getId() == 4) {
-				int contador = +x;
-				if (quantidadeItem2 % contador == 0) {
-					quantidadeDesconto2 = +1;
+				contador2++;
+				if (quantidadeItem2 % contador2 == 0) {
+					quantidadeDesconto2++;
 				}
 			}
 
