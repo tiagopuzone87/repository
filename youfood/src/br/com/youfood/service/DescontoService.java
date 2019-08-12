@@ -25,7 +25,7 @@ public class DescontoService {
 		int contador2 = 0;
 
 		Double valor = 0.0;
-		for (int x = 0; x <= ingredientes.size(); x++) {
+		for (int x = 0; x < ingredientes.size(); x++) {
 			ingredientesUtilizado.get(x).setId(ingredientes.get(x).getId());
 
 			if (ingredientes.get(x).getId() == 1) {
@@ -52,17 +52,17 @@ public class DescontoService {
 
 		}
 
-		// Desconto pelos ingredientes tem alface e nao tem bacon
+		// Light
 		if (chave1 && !chave2) {
 			valorTotal = ((valorTotal * 10) / 100);
 		}
 
-		// Desconto quantidade multipla de porção de carne
+		// Muita carne
 		if (quantidadeDesconto1 > 0) {
 			valorTotal = (valorTotal - (quantidadeDesconto1 * ing_select.opcional(3L).getValor()));
 		}
 
-		// Desconto quantidade multipla de porção de queijo
+		// Muito queijo
 		if (quantidadeDesconto2 > 0) {
 			valorTotal = (valorTotal - (quantidadeDesconto2 * ing_select.opcional(5L).getValor()));
 		}

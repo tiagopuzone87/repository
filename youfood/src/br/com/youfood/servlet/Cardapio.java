@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/cardapio" })
+import br.com.youfood.dao.Lanche_Lista;
+import br.com.youfood.model.Lanche;
+import br.com.youfood.service.LancheService;
+
+@WebServlet(urlPatterns = { "/adicionarProduto" })
 public class Cardapio extends HttpServlet {
 
 	@Override
@@ -19,17 +23,30 @@ public class Cardapio extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 
+		String codigo = request.getParameter("codigo");
+
+		Lanche_Lista produto = new Lanche_Lista();
+		LancheService obterValor = new LancheService();
+		Lanche pedido = new Lanche();
+
+		pedido = produto.obterLanchePronto(Long.parseLong(codigo));
+		
+		
+
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>YouFood</title>");
-		out.println("</head>");
 		out.println("<body>");
-		out.println("<h1>Opção : </h1>");
-		out.println("<h1>   </h1>");
-
+		if (pedido.getDescricao() != null) {
+			Double valorTotal = obterValor.obterIngredientesValor(pedido.getIngredientes());
+			out.println("<h1> Seu Pedido : <h1>" + pedido.getDescricao() + " , Valor total R$" + valorTotal
+					+ "</h1>");
+		} else {
+			out.println("<h1> Opção não encontrada. </h1>");
+		}
+		out.println("<b />");
 		out.println(
 				"<input type=\"button\" value=\"Voltar ao menu principal\" onClick=\"window.location.href='http://localhost:8080/youfood/pedido'\">");
-
+		out.println("<b />");
 		out.println("</body>");
 		out.println("</html>");
 

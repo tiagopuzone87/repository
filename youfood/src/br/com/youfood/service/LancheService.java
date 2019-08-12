@@ -9,26 +9,18 @@ import br.com.youfood.service.DescontoService;
 
 public class LancheService {
 
-	public Lanche montagem(List<Ingredientes> ingredientes, String descricao) {
+	public Double obterIngredientesValor(List<Ingredientes> ingredientes) {
 
 		DescontoService descontoService = new DescontoService();
-		Lanche lanche1 = new Lanche();
 		Double valor = 0D;
-		lanche1.setDescricao(descricao);
 
-		for (Ingredientes ingredientesAdd : ingredientes) {
-			lanche1.getIngrediente().add(ingredientesAdd);
+		for (int x = 0; x < ingredientes.size(); x++) {
+			valor += ingredientes.get(x).getValor();
 		}
 
-		for (int x = 0; x <= lanche1.getIngrediente().size(); x++) {
-			valor += lanche1.getIngrediente().get(x).getValor();
-		}
+//		descontoService.calculaDesconto(ingredientes, valor);
 
-		lanche1.setValor(valor);
-
-		descontoService.calculaDesconto(ingredientes, lanche1.getValor());
-
-		return lanche1;
+		return valor;
 
 	}
 

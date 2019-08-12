@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/alternativo" })
-public class Alternativo extends HttpServlet {
+@WebServlet(urlPatterns = { "/personalizado" })
+public class Personalizado extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
