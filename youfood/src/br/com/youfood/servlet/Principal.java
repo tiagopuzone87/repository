@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/pedido" }, initParams = { 
-		@WebInitParam(name = "param1", value = "value1"),
-		@WebInitParam(name = "param2", value = "value2") })
+@WebServlet(urlPatterns = { "/pedido" })
 public class Principal extends HttpServlet {
 
 	@Override
@@ -32,11 +30,9 @@ public class Principal extends HttpServlet {
 		out.println("<h1> -> 1 Para acessar o cardápio. </h1>");
 		out.println("<input type=\"button\" value=\"Cardapio\" onClick=\"window.location.href='http://localhost:8080/youfood/produto.html'\">");
 		out.println("<h1> -> 2 Para montar um lanche personalizado.  </h1>");
-		out.println("<input type=\"button\" value=\"Custom\" onClick=\"window.location.href='http://localhost:8080/youfood/personalizado'\">");
+		out.println("<input type=\"button\" value=\"Custom\" onClick=\"window.location.href='http://localhost:8080/youfood/custom.html'\">");
 		out.println("</body>");
 		out.println("</html>");
-		
-		
 
 	}
 

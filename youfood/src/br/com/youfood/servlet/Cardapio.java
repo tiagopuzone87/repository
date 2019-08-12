@@ -2,6 +2,7 @@ package br.com.youfood.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -25,6 +26,7 @@ public class Cardapio extends HttpServlet {
 
 		String codigo = request.getParameter("codigo");
 
+		DecimalFormat df = new DecimalFormat("#,###.00");
 		Lanche_Lista produto = new Lanche_Lista();
 		LancheService obterValor = new LancheService();
 		Lanche pedido = new Lanche();
@@ -36,7 +38,8 @@ public class Cardapio extends HttpServlet {
 		out.println("<body>");
 		if (pedido.getDescricao() != null) {
 			Double valorTotal = obterValor.obterIngredientesValor(pedido.getIngredientes());
-			out.println("<h1> Seu Pedido : <h1>" + pedido.getDescricao() + " , Valor total R$" + valorTotal + "</h1>");
+			out.println("<h1> Seu Pedido : <h1>" + pedido.getDescricao() + " , Valor total R$" + df.format(valorTotal)
+					+ "</h1>");
 			out.println("<h3> Ingredientes: </h3>");
 			for (int x = 0; x < pedido.getIngredientes().size(); x++) {
 				out.println(pedido.getIngredientes().get(x).getDescricao() + " -  Valor unitário: "

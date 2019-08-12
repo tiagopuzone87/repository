@@ -57,12 +57,12 @@ public class DescontoService {
 
 		// Muita carne
 		if (quantidadeDesconto1 > 0) {
-			valorTotal = (valorTotal - (quantidadeDesconto1 * ing_select.opcional(3L).getValor()));
+			valorTotal = (valorTotal - (quantidadeDesconto1 * (ing_select.opcional(3L).getValor())));
 		}
 
 		// Muito queijo
 		if (quantidadeDesconto2 > 0) {
-			valorTotal = (valorTotal - (quantidadeDesconto2 * ing_select.opcional(5L).getValor()));
+			valorTotal = (valorTotal - (quantidadeDesconto2 * (ing_select.opcional(5L).getValor())));
 		}
 
 		return valorTotal;
