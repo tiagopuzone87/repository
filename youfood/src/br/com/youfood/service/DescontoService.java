@@ -20,10 +20,12 @@ public class DescontoService {
 		int quantidadeItem2 = 3;
 		int quantidadeDesconto1 = 0;
 		int quantidadeDesconto2 = 0;
-		int contador1 = 0;
-		int contador2 = 0;
+		int contador1 = 1;
+		int contador2 = 1;
 		Double valorUnitarioCarne = ing_select.opcional(3L).getValor();
 		Double valorUnitarioQueijo = ing_select.opcional(5L).getValor();
+		Double desconto = 0.0;
+		int porcentagem = 50;
 
 		Double valor = 0.0;
 		for (int x = 0; x < ingredientes.size(); x++) {
@@ -38,7 +40,7 @@ public class DescontoService {
 
 			if (ingredientes.get(x).getId() == 3) {
 
-				if ((contador1 % 3) == 0) {
+				if ((contador1 % 3) == 0 && contador1 >= 3) {
 					quantidadeDesconto1++;
 				}
 				contador1++;
@@ -47,18 +49,11 @@ public class DescontoService {
 
 			if (ingredientes.get(x).getId() == 5) {
 
-				if ((contador2 % 3) == 0) {
+				if ((contador2 % 3) == 0 && contador2 >= 3) {
 					quantidadeDesconto2++;
 				}
 				contador2++;
-
 			}
-
-		}
-
-		// Light
-		if (chave1 && !chave2) {
-			valorTotal += ((valorTotal * 10) / 100);
 		}
 
 		// Muita carne
@@ -71,7 +66,12 @@ public class DescontoService {
 			valorTotal -= (quantidadeDesconto2 * (valorUnitarioQueijo));
 		}
 
-		return valorTotal;
+		// Light
+		if (chave1 && !chave2) {
+			desconto = ((valorTotal * porcentagem) / 100);
+		}
+
+		return (valorTotal - desconto);
 
 	}
 }
