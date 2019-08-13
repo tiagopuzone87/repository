@@ -18,7 +18,7 @@ public class LancheService {
 			valor += ingredientes.get(x).getValor();
 		}
 
-		descontoService.calculaDesconto(ingredientes, valor);
+		valor = descontoService.calculaDesconto(ingredientes, valor);
 
 		return valor;
 

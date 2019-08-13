@@ -22,6 +22,8 @@ public class DescontoService {
 		int quantidadeDesconto2 = 0;
 		int contador1 = 0;
 		int contador2 = 0;
+		Double valorUnitarioCarne = ing_select.opcional(3L).getValor();
+		Double valorUnitarioQueijo = ing_select.opcional(5L).getValor();
 
 		Double valor = 0.0;
 		for (int x = 0; x < ingredientes.size(); x++) {
@@ -35,34 +37,38 @@ public class DescontoService {
 			} else
 
 			if (ingredientes.get(x).getId() == 3) {
-				contador1++;
-				if (quantidadeItem1 % contador1 == 0) {
+
+				if ((contador1 % 3) == 0) {
 					quantidadeDesconto1++;
 				}
+				contador1++;
+
 			} else
 
-			if (ingredientes.get(x).getId() == 4) {
-				contador2++;
-				if (quantidadeItem2 % contador2 == 0) {
+			if (ingredientes.get(x).getId() == 5) {
+
+				if ((contador2 % 3) == 0) {
 					quantidadeDesconto2++;
 				}
+				contador2++;
+
 			}
 
 		}
 
 		// Light
 		if (chave1 && !chave2) {
-			valorTotal = ((valorTotal * 10) / 100);
+			valorTotal += ((valorTotal * 10) / 100);
 		}
 
 		// Muita carne
 		if (quantidadeDesconto1 > 0) {
-			valorTotal = (valorTotal - (quantidadeDesconto1 * (ing_select.opcional(3L).getValor())));
+			valorTotal -= (quantidadeDesconto1 * (valorUnitarioCarne));
 		}
 
 		// Muito queijo
 		if (quantidadeDesconto2 > 0) {
-			valorTotal = (valorTotal - (quantidadeDesconto2 * (ing_select.opcional(5L).getValor())));
+			valorTotal -= (quantidadeDesconto2 * (valorUnitarioQueijo));
 		}
 
 		return valorTotal;

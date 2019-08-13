@@ -67,6 +67,7 @@ public class Personalizado extends HttpServlet {
 
 		if (pedido.getIngredientes() != null) {
 
+			out.println("<h2> Lanche personalizado! </h2>");
 			out.println("<h3> Ingredientes : </h3>");
 			for (int x = 0; x < pedido.getIngredientes().size(); x++) {
 				out.println(pedido.getIngredientes().get(x).getDescricao() + " -  Valor unitário: "
