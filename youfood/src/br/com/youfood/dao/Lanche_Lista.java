@@ -25,6 +25,7 @@ public class Lanche_Lista extends Lanche {
 			lanche1.setDescricao("X-Bacon");
 			lanche1.setIngredientes(itens1);
 			lanche1.setValor(obterValor.obterIngredientesValor(itens1));
+			lanche1.setId(1L);
 			ret = lanche1;
 
 		}
@@ -37,6 +38,8 @@ public class Lanche_Lista extends Lanche {
 			itens2.add(ing.opcional(5L));
 			lanche2.setDescricao("X-Burguer");
 			lanche2.setIngredientes(itens2);
+			lanche2.setValor(obterValor.obterIngredientesValor(itens2));
+			lanche2.setId(2L);
 			ret = lanche2;
 
 		} else if (codigo == 3) {
@@ -48,6 +51,8 @@ public class Lanche_Lista extends Lanche {
 			itens3.add(ing.opcional(5L));
 			lanche3.setDescricao("X-Egg");
 			lanche3.setIngredientes(itens3);
+			lanche3.setValor(obterValor.obterIngredientesValor(itens3));
+			lanche3.setId(3L);
 			ret = lanche3;
 
 		} else if (codigo == 4) {
@@ -60,6 +65,8 @@ public class Lanche_Lista extends Lanche {
 			itens4.add(ing.opcional(5L));
 			lanche4.setDescricao("X-Egg-Bacon");
 			lanche4.setIngredientes(itens4);
+			lanche4.setValor(obterValor.obterIngredientesValor(itens4));
+			lanche4.setId(4L);
 			ret = lanche4;
 		}
 

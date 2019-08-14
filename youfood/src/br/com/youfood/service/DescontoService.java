@@ -25,7 +25,7 @@ public class DescontoService {
 		Double valorUnitarioCarne = ing_select.opcional(3L).getValor();
 		Double valorUnitarioQueijo = ing_select.opcional(5L).getValor();
 		Double desconto = 0.0;
-		int porcentagem = 50;
+		int porcentagem = 10;
 
 		Double valor = 0.0;
 		for (int x = 0; x < ingredientes.size(); x++) {

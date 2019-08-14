@@ -36,9 +36,8 @@ public class Cardapio extends HttpServlet {
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<body>");
-		if (pedido.getDescricao() != null) {
-			Double valorTotal = obterValor.obterIngredientesValor(pedido.getIngredientes());
-			out.println("<h1> Seu Pedido : <h1>" + pedido.getDescricao() + " , Valor total R$" + df.format(valorTotal)
+		if (pedido.getId() != null) {
+			out.println("<h1> Seu Pedido : <h1>" + pedido.getDescricao() + " , Valor total R$" + df.format(pedido.getValor())
 					+ "</h1>");
 			out.println("<h3> Ingredientes: </h3>");
 			for (int x = 0; x < pedido.getIngredientes().size(); x++) {
