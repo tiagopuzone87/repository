@@ -27,6 +27,8 @@ public class Cardapio extends HttpServlet {
 		String codigo = request.getParameter("codigo");
 
 		DecimalFormat df = new DecimalFormat("#,###.00");
+		df.applyPattern("R$ #,##0.00");
+		
 		Lanche_Lista produto = new Lanche_Lista();
 		LancheService obterValor = new LancheService();
 		Lanche pedido = new Lanche();
@@ -42,7 +44,7 @@ public class Cardapio extends HttpServlet {
 			out.println("<h3> Ingredientes: </h3>");
 			for (int x = 0; x < pedido.getIngredientes().size(); x++) {
 				out.println(pedido.getIngredientes().get(x).getDescricao() + " -  Valor unitário: "
-						+ (pedido.getIngredientes().get(x).getValor()) + "<br/>");
+						+ df.format((pedido.getIngredientes().get(x).getValor())) + "<br/>");
 			}
 		} else {
 			out.println("<h1> Opção não encontrada. </h1>");

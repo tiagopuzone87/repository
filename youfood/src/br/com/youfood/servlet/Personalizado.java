@@ -29,6 +29,7 @@ public class Personalizado extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		DecimalFormat df = new DecimalFormat("#,###.00");
+		df.applyPattern("R$ #,##0.00");
 
 		LancheService obterValor = new LancheService();
 		Lanche pedido = new Lanche();
@@ -71,7 +72,7 @@ public class Personalizado extends HttpServlet {
 			out.println("<h3> Ingredientes : </h3>");
 			for (int x = 0; x < pedido.getIngredientes().size(); x++) {
 				out.println(pedido.getIngredientes().get(x).getDescricao() + " -  Valor unitário: "
-						+ (pedido.getIngredientes().get(x).getValor()) + "<br/>");
+						+ df.format((pedido.getIngredientes().get(x).getValor())) + "<br/>");
 			}
 
 			Double valorTotal = obterValor.obterIngredientesValor(pedido.getIngredientes());

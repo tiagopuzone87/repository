@@ -25,11 +25,11 @@ public class Principal extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<h1>Bem vindo ao YouFood Lanches!</h1>");
-		out.println("<h1> ;) </h1>");
+		out.println("<h1> </h1>");
 		out.println("<h1>Escolha uma das opções...</h1>");
-		out.println("<h1> -> 1 Para acessar o cardápio. </h1>");
+		out.println("<h1> * 1 Para acessar o cardápio. </h1>");
 		out.println("<input type=\"button\" value=\"Cardapio\" onClick=\"window.location.href='http://localhost:8080/youfood/produto.html'\">");
-		out.println("<h1> -> 2 Para montar um lanche personalizado.  </h1>");
+		out.println("<h1> * 2 Para montar um lanche personalizado.  </h1>");
 		out.println("<input type=\"button\" value=\"Custom\" onClick=\"window.location.href='http://localhost:8080/youfood/custom.html'\">");
 		out.println("</body>");
 		out.println("</html>");
