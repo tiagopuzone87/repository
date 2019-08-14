@@ -16,3 +16,9 @@ Clique com o botão direito no projeto, Propriedades > Targeted Runtime. Selecio
 Na barra inferior em Servers, clique com o botão direito "Add and Remove", adicione o projeto, Finish.
 Reinicie o servidor.
 Página inicial : http://localhost:8080/youfood/pedido.
+
+Aplicação back-end desenvolvida em JAVA, front-end em HTML, com servlets e servidor Tomcat. Utilizado conceitos de orientação a objetos, 
+porém sem acesso a banco de dados. Esquema de camadas para endpoint, data access object, service, resource (servlets).
+
+
+
